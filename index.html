@@ -102,7 +102,7 @@ footer .hand{font-size:44px}
 <div class="nav-inner">
 <div class="logo">МОЛОДЁЖНАЯ<br>КОНФЕРЕНЦИЯ</div>
 <div class="nav-links">
-<a href="#about">о конференции</a><a href="#speaker">спикер</a><a href="#program">программа</a><a href="#donation">пожертвование</a><a href="#registration">регистрация</a>
+<a href="#about">о конференции</a><a href="#speaker">спикер</a><a href="#program">программа</a><a href="#donation">оплата</a><a href="#registration">регистрация</a>
 </div>
 </div>
 </nav>
@@ -158,24 +158,18 @@ footer .hand{font-size:44px}
 <section id="donation" class="section">
 <div class="donation-reg">
 <div class="card">
-<h3>Добровольное<br>пожертвование</h3>
-<p>Ты можешь поддержать проведение конференции. Пожертвование полностью добровольное.</p>
-<div class="amounts">
-<button class="amount active" data-amount="500">500 ₽</button>
-<button class="amount" data-amount="1000">1 000 ₽</button>
-<button class="amount" data-amount="1500">1 500 ₽</button>
-</div>
-<input class="other" id="otherAmount" type="number" min="1" placeholder="Другая сумма, ₽">
-<button class="pay" onclick="donate()">ПЕРЕЙТИ К ПОЖЕРТВОВАНИЮ →</button>
-<p class="small">Сейчас кнопка подготовлена под подключение платёжной ссылки. После того как будет известна система оплаты, сюда можно поставить реальную оплату.</p>
-<div class="note">«Каждый пусть даёт, сколько позволяет сердце…» — 2 Кор. 9:7</div>
+<h3>Оплата<br>на месте</h3>
+<p>Регистрация на конференцию проходит заранее, а оплата производится <strong>по приезду на конференцию</strong>.</p>
+<div class="note">Оплата на месте · 3 октября</div>
+<p class="small">Пожалуйста, заполни регистрационную форму ниже, чтобы мы знали, кто приедет на конференцию.</p>
 </div>
 
 <div id="registration" class="card">
 <h3>Регистрация</h3>
-<p>Заполни регистрационную форму, чтобы принять участие в конференции.</p>
-<a class="pay full" href="https://docs.google.com/forms/d/e/1FAIpQLSesNutqOwdSgb3jxaPmIOKqbvFssk86p3RREbNj8Tk61RFHuA/viewform?usp=preview" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;text-decoration:none;">ЗАРЕГИСТРИРОВАТЬСЯ →</a>
-<p class="small">После нажатия откроется настоящая Google Форма регистрации.</p>
+<p>Заполни форму прямо на сайте — после отправки заявка попадёт в твою Google Форму.</p>
+<div class="form-embed" style="margin-top:18px;border-radius:14px;overflow:hidden;background:#fff;">
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdGhY175e5yJrvIRPIk-8nMDAoafQlWQbXoNY5IufNHzAsnug/viewform" width="100%" height="850" frameborder="0" marginheight="0" marginwidth="0" title="Регистрация на молодёжную конференцию">Загрузка формы…</iframe>
+</div>
 </div>
 </div>
 </section>
@@ -200,21 +194,6 @@ footer .hand{font-size:44px}
 
 <div id="toast" class="toast"></div>
 <script>
-let selected=500;
-document.querySelectorAll('.amount').forEach(b=>b.addEventListener('click',()=>{
- document.querySelectorAll('.amount').forEach(x=>x.classList.remove('active'));
- b.classList.add('active'); selected=Number(b.dataset.amount);
- document.getElementById('otherAmount').value='';
-}));
-document.getElementById('otherAmount').addEventListener('input',()=>{
- document.querySelectorAll('.amount').forEach(x=>x.classList.remove('active'));
-});
-function showToast(t){const x=document.getElementById('toast');x.textContent=t;x.style.display='block';setTimeout(()=>x.style.display='none',4500)}
-function donate(){
- const other=Number(document.getElementById('otherAmount').value);
- const amount=other>0?other:selected;
- showToast('Выбрано пожертвование: '+amount.toLocaleString('ru-RU')+' ₽. Для приёма оплаты подключите вашу платёжную ссылку.');
-}
 </script>
 </body>
 </html>
